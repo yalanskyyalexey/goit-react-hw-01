@@ -1,11 +1,6 @@
 import PropTypes from 'prop-types';
+import { getRandomRgbColor } from '../../utils/RandomColor';
 import styles from './Statistics.module.css';
-
-function getRandomRgbColor() {
-	const r = () => (Math.random() * 256) >> 0;
-	const color = `rgb(${r()}, ${r()}, ${r()})`;
-	return color;
-}
 
 const Statistics = ({ title, stats }) => {
 	return (

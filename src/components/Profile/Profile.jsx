@@ -2,12 +2,6 @@ import PropTypes from 'prop-types';
 import styles from './Profile.module.css';
 
 const Profile = ({ name, avatar, tag, location, stats }) => {
-	const st = Object.entries(stats).map(([key, value]) => (
-		<li key={key}>
-			<span className={styles.label}>{key}</span>
-			<span className={styles.quantity}>{value}</span>
-		</li>
-	));
 	return (
 		<div className={styles.profile}>
 			<div className={styles.description}>
@@ -16,7 +10,14 @@ const Profile = ({ name, avatar, tag, location, stats }) => {
 				<p className={styles.tag}>@{tag}</p>
 				<p className={styles.location}>{location}</p>
 			</div>
-			<ul className={styles.stats}>{st}</ul>
+			<ul className={styles.stats}>
+				{Object.entries(stats).map(([key, value]) => (
+					<li key={key}>
+						<span className={styles.label}>{key}</span>
+						<span className={styles.quantity}>{value}</span>
+					</li>
+				))}
+			</ul>
 		</div>
 	);
 };
